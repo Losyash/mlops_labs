@@ -1,16 +1,13 @@
 pipline {
-    agent none
+    agent any
 
     stages {
         stage('Setup miniconda') {
-            agent any
-
             steps {
-                wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
-                bash miniconda.sh -b -p $WORKSPACE/miniconda3
-                hash -r
-                conda config --set always_yes yes --set changeps1 no
-                conda update -q conda
+                sh '''wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh'''
+                sh '''miniconda.sh -b -p $WORKSPACE/miniconda3'''
+                sh '''$WORKSPACE/miniconda3/bin/conda config --set always_yes yes --set changeps1 no'''
+                sh '''$WORKSPACE/miniconda3/bin/conda update -q conda'''
             }
         }
     }
