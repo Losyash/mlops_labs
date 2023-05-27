@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Setup miniconda') {
+            steps {
+                git branch: 'main', credentialsId: 'github-ssh', url: 'git@github.com:Losyash/mlops_labs.git'
+                sh 'python3 -m venv $WORKSPACE/lab2/venv'
+                sh '. $WORKSPACE/lab2/venv/bin/activate'
+                sh 'pip3 install numpy pandas scikit-learn'
+            }
+        }
+    }
+}

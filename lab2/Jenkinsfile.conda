@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Setup miniconda') {
+            steps {
+                sh '''if ! [ -f $WORKDIR/miniconda.sh ]; then
+                    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+                    chmod u+x $WORKSPACE/miniconda.sh;
+                    fi'''
+
+                sh '''if ! [ -d $WORKSPACE/miniconda3 ]; then
+                    $WORKSPACE/miniconda.sh -b -p $WORKSPACE/miniconda3
+                    $WORKSPACE/miniconda3/bin/conda config --set always_yes yes --set changeps1 no
+                    $WORKSPACE/miniconda3/bin/conda update -q conda;
+                    fi'''
+            }
+        }
+        stage('Create environment') {
+            steps {
+                sh 'if $WORKSPACE/miniconda3/bin/conda env list | grep -q lab2; then echo "Environment already exists"; else $WORKSPACE/miniconda3/bin/conda create -y -n lab2 python=3.10; fi'
+                sh '. /var/lib/jenkins/workspace/mlops_lab2_pipline/miniconda3/etc/profile.d/conda.sh'
+                sh '$WORKSPACE/miniconda3/bin/conda activate lab2'
+            }
+        }
+    }
+}
