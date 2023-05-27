@@ -15,7 +15,6 @@ if not os.path.exists(f'{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TRAIN_FOLDE
 if not os.path.exists(f'{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TEST_FOLDER}'):
     os.makedirs(f'{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TEST_FOLDER}')
 
-
 def generate_random(number, count):
     noise_indexes = [];
 
@@ -27,7 +26,6 @@ def generate_random(number, count):
 
     return noise_indexes
 
-
 # Генерация тренировочных данных
 year_2022_temp = np.random.normal(25, 5, 365);
 year_2022_days = range(1, 366)
@@ -38,7 +36,6 @@ for x in generate_random(5, 365):
     train_data.loc[x, 'day_temp'] = random.uniform(0, 1)
 
 train_data.to_csv(f'{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TRAIN_FOLDER}/train_data.csv', index=False)
-
 
 # Генерация тестовых данных
 year_2023_temp = np.random.normal(25, 5, 31);

@@ -6,7 +6,6 @@ from settings import (
     DATASET_RAW_FOLDER, DATASET_PROCESSED_FOLDER
 )
 
-
 if not os.path.exists(f'{DATASET_PATH}/{DATASET_PROCESSED_FOLDER}'):
     os.makedirs(f'{DATASET_PATH}/{DATASET_PROCESSED_FOLDER}')
 
@@ -15,7 +14,6 @@ if not os.path.exists(f'{DATASET_PATH}/{DATASET_PROCESSED_FOLDER}/{DATASET_TRAIN
 
 if not os.path.exists(f'{DATASET_PATH}/{DATASET_PROCESSED_FOLDER}/{DATASET_TEST_FOLDER}'):
     os.makedirs(f'{DATASET_PATH}/{DATASET_PROCESSED_FOLDER}/{DATASET_TEST_FOLDER}')
-
 
 train_data = pd.read_csv(f'{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TRAIN_FOLDER}/train_data.csv')
 test_data = pd.read_csv(f'{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TEST_FOLDER}/test_data.csv')
