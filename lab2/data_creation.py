@@ -6,14 +6,14 @@ import pandas as pd
 from settings import DATASET_PATH, DATASET_TRAIN_FOLDER, DATASET_TEST_FOLDER, DATASET_RAW_FOLDER
 
 
-if not os.path.exists(f'{DATASET_PATH}/{DATASET_RAW_FOLDER}'):
-    os.makedirs(f'{DATASET_PATH}/{DATASET_RAW_FOLDER}')
+if not os.path.exists(f'lab2/{DATASET_PATH}/{DATASET_RAW_FOLDER}'):
+    os.makedirs(f'lab2/{DATASET_PATH}/{DATASET_RAW_FOLDER}')
 
-if not os.path.exists(f'{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TRAIN_FOLDER}'):
-    os.makedirs(f'{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TRAIN_FOLDER}')
+if not os.path.exists(f'lab2/{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TRAIN_FOLDER}'):
+    os.makedirs(f'lab2/{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TRAIN_FOLDER}')
 
-if not os.path.exists(f'{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TEST_FOLDER}'):
-    os.makedirs(f'{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TEST_FOLDER}')
+if not os.path.exists(f'lab2/{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TEST_FOLDER}'):
+    os.makedirs(f'lab2/{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TEST_FOLDER}')
 
 def generate_random(number, count):
     noise_indexes = [];
