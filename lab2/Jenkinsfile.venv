@@ -12,5 +12,11 @@ pipeline {
                 sh 'pip3 install numpy pandas scikit-learn'
             }
         }
+        stage('Train and test model') {
+            steps {
+                sh 'chmod u+x $WORKSPACE/lab2/pipeline.sh'
+                sh '$WORKSPACE/lab2/pipeline.sh'
+            }
+        }
     }
 }
