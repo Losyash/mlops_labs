@@ -1,0 +1,9 @@
+DATASET_PATH = 'data'
+
+DATASET_TRAIN_FOLDER = 'train';
+DATASET_TEST_FOLDER = 'test';
+
+DATASET_RAW_FOLDER = 'raw'
+DATASET_PROCESSED_FOLDER = 'processed'
+
+MODEL_PATH = 'model'
