@@ -1,5 +1,7 @@
 DATASET_PATH = 'data'
 
+DATASET_PREFIX = 'lab'
+
 DATASET_TRAIN_FOLDER = 'train';
 DATASET_TEST_FOLDER = 'test';
 

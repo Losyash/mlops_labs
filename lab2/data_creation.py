@@ -3,17 +3,19 @@ import random
 import datetime
 import numpy as np
 import pandas as pd
-from settings import DATASET_PATH, DATASET_TRAIN_FOLDER, DATASET_TEST_FOLDER, DATASET_RAW_FOLDER
+from settings import (
+    DATASET_PREFIX, DATASET_PATH, DATASET_TRAIN_FOLDER,
+    DATASET_TEST_FOLDER, DATASET_RAW_FOLDER
+)
 
+if not os.path.exists(f'{DATASET_PREFIX}/{DATASET_PATH}/{DATASET_RAW_FOLDER}'):
+    os.makedirs(f'{DATASET_PREFIX}}/{DATASET_PATH}/{DATASET_RAW_FOLDER}')
 
-if not os.path.exists(f'lab2/{DATASET_PATH}/{DATASET_RAW_FOLDER}'):
-    os.makedirs(f'lab2/{DATASET_PATH}/{DATASET_RAW_FOLDER}')
+if not os.path.exists(f'{DATASET_PREFIX}/{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TRAIN_FOLDER}'):
+    os.makedirs(f'{DATASET_PREFIX}/{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TRAIN_FOLDER}')
 
-if not os.path.exists(f'lab2/{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TRAIN_FOLDER}'):
-    os.makedirs(f'lab2/{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TRAIN_FOLDER}')
-
-if not os.path.exists(f'lab2/{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TEST_FOLDER}'):
-    os.makedirs(f'lab2/{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TEST_FOLDER}')
+if not os.path.exists(f'{DATASET_PREFIX}/{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TEST_FOLDER}'):
+    os.makedirs(f'{DATASET_PREFIX}/{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TEST_FOLDER}')
 
 def generate_random(number, count):
     noise_indexes = [];
@@ -35,7 +37,7 @@ train_data = pd.DataFrame({ 'year_day': year_2022_days, 'day_temp': year_2022_te
 for x in generate_random(5, 365):
     train_data.loc[x, 'day_temp'] = random.uniform(0, 1)
 
-train_data.to_csv(f'{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TRAIN_FOLDER}/train_data.csv', index=False)
+train_data.to_csv(f'{DATASET_PREFIX}/{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TRAIN_FOLDER}/train_data.csv', index=False)
 
 # Генерация тестовых данных
 year_2023_temp = np.random.normal(25, 5, 31);
@@ -46,4 +48,4 @@ test_data = pd.DataFrame({ 'year_day': year_2023_days, 'day_temp': year_2023_tem
 for x in generate_random(2, 31):
     test_data.loc[x, 'day_temp'] = random.uniform(0, 1)
 
-test_data.to_csv(f'{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TEST_FOLDER}/test_data.csv', index=False)
+test_data.to_csv(f'{DATASET_PREFIX}/{DATASET_PATH}/{DATASET_RAW_FOLDER}/{DATASET_TEST_FOLDER}/test_data.csv', index=False)

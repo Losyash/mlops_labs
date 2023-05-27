@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-if ! [ -d logs ]; then mkdir logs; fi
+if ! [ -d lab2/logs ]; then mkdir lab2/logs; fi
 
 echo "Start data_creation.py"
 python lab2/data_creation.py
