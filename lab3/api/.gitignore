@@ -1,0 +1,7 @@
+**/__pycache__
+/.cache
+/.conda
+/models
+/output
+/.pytest_cache
+/conda

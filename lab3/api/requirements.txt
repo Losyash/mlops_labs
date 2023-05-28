@@ -1,0 +1,18 @@
+fastai @ https://github.com/fastai/fastai1/archive/master.zip
+fastapi
+httpx
+matplotlib
+numpy
+opencv-python-headless
+Pillow
+pydantic
+requests
+scikit_image
+scikit-image
+scipy
+stqdm
+torch
+torchvision
+uvicorn
+scikit-image
+opencv-python

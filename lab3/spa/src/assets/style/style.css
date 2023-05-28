@@ -1,0 +1,168 @@
+* {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  /* transition: all .25s ease-in-out; */
+}
+
+/* *:before, *:after {
+  transition: all .25s ease-in-out;
+} */
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  -ms-overflow-style: scrollbar;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  color: rgba(0, 0, 0, 1);
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto Regular", sans-serif;
+  background-color: #F6F6F6;
+}
+
+html, body {
+  height: 100%;
+  min-height: 100%;
+  overflow-y: hidden;
+  overflow-y: auto;
+}
+
+@font-face {
+  font-family: "Roboto Bold";
+  src: url(/fonts/Roboto-Bold.woff);
+}
+
+@font-face {
+  font-family: "Roboto Regular";
+  src: url(/fonts/Roboto-Regular.woff);
+}
+
+@font-face {
+  font-family: "Roboto Medium";
+  src: url(/fonts/Roboto-Medium.woff);
+}
+
+@font-face {
+  font-family: "Roboto Italic";
+  src: url(/fonts/Roboto-Italic.woff);
+}
+
+@font-face {
+  font-family: "Roboto Black";
+  src: url(/fonts/Roboto-Black.woff);
+}
+
+.u-form-radio {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  user-select: none;
+  align-items: center;
+}
+
+.u-form-radio input {
+  cursor: pointer;
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  width: 0;
+}
+
+.u-form-radio input:checked ~ .u-form-radio-checkmark:after {
+  opacity: 1;
+}
+
+.u-form-radio .u-form-radio-checkmark {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #1E4391;
+  display: inline-flex;
+  height: 16px;
+  margin-right: 8px;
+  position: relative;
+  width: 16px;
+}
+
+.u-form-radio .u-form-radio-checkmark:after {
+  content: '';
+  background: #1E4391;
+  border-radius: 100%;
+  height: 8px;
+  left: 3px;
+  opacity: 0;
+  position: absolute;
+  top: 3px;
+  transition: all 0.2s ease;
+  width: 8px;
+}
+
+.u-form-radio .u-form-radio-label {
+  font-family: "Roboto Regular", sans-serif;
+  color: #333333;
+  font-size: 16px;
+  display: inline-flex;
+}
+
+.u-form-input {
+  border-radius: 5px;
+  border: 1px solid #1E4391;
+  height: 48px;
+  padding: 5px 10px;
+  width: 100%;
+}
+
+.u-form-input:focus, .u-form-input:hover {
+  outline: none;
+}
+
+.u-button {
+  padding: 10px 16px;
+  border-radius: 5px;
+  border: none;
+  color: #ffffff;  
+}
+
+.u-button.u-green {
+  background-color: #05725a;
+}
+
+.u-button.u-blue {
+  background-color: #1E4391;
+}
+
+.page-caption {
+  color: #1E4391;
+  font-family: "Roboto Medium", sans-serif;
+  font-size: 28px;
+}
+
+.section-caption {
+  color: #1E4391;
+  font-family: "Roboto Medium", sans-serif;
+  font-size: 16px;;
+}
+
+.response-image {
+  width: 100%;
+}
