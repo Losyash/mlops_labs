@@ -1,4 +1,5 @@
 import os
+import uvicorn
 import PIL
 import cv2
 import base64
@@ -101,7 +102,11 @@ colorizer = load_model("models/", st_color_option)
 
 app = FastAPI()
 
-origins = ["http://localhost", "http://localhost:5173"]
+origins = [
+    'http://localhost',
+    'http://localhost:5173',
+    '127.0.0.1'
+]
 
 app.add_middleware(
     CORSMiddleware,
@@ -125,4 +130,8 @@ async def from_file(file_item: FileItem):
     img_output.convert("RGB").save(buffered, format="JPEG")
     img_str = base64.b64encode(buffered.getvalue())
 
-    return img_str
+    # return img_str
+    return 'fdasfsfsdfsf'
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)

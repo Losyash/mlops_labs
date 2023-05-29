@@ -2,12 +2,19 @@ FROM python:3.9
 
 WORKDIR /app
 
-COPY requirements.txt .
+RUN apt-get update
+RUN apt-get install ffmpeg libsm6 libxext6 libgl1-mesa-glx python3-opencv -y
 
-RUN pip install --no-cache-dir --upgrade -r requirements.txt
+COPY ./api/requirements.txt .
 
-COPY ./app.py .
-COPY ./src ./src
+RUN python -m pip install --upgrade pip
+RUN pip install --upgrade -r requirements.txt
+
+COPY ./api/app.py .
+COPY ./api/src ./src
+COPY ./api/models ./models
+COPY ./api/assets ./assets
+COPY ./api/output  ./output
 
 EXPOSE 8000
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]

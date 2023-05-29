@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  http_server:
+  web:
     image: nginx
     restart: always
     environment:
@@ -12,20 +12,17 @@ services:
       - ./spa/dist/:/usr/share/nginx/html
       - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
     networks:
-      app:
-        ipv4_address: 192.168.1.100
+      - custom
 
-    colorize_api:
-      build:
-        context: .
-        dockerfile: ./api/Dockerfile
-      networks:
-        colorize_app:
-          ipv4_address: 192.168.1.101
+  app:
+    build:
+      context: .
+      dockerfile: ./api/Dockerfile
+    ports:
+      - "8000:8000"
+    networks:
+      - custom
 
 networks:
-  app:
+  custom:
     driver: bridge
-    ipam:
-      config:
-        - subnet: 192.168.1.0/24
