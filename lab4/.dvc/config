@@ -1,0 +1,4 @@
+[core]
+    autostage = true
+['remote "titanic"']
+    url = gdrive://1dVD-SPekLJjgP_ZOqmwRuqakiv3ywrWz
